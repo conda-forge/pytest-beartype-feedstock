@@ -20,7 +20,7 @@ requirements:
     - python >=3.8
     - setuptools
   run:
-    - beartype
+    - beartype >=0.19.0
     - pytest
     - python >=3.8
 
