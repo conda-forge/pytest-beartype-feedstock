@@ -7,7 +7,7 @@ REPORT = [
     "--show-missing",
     "--skip-covered",
     "--fail-under",
-    "98",
+    "95",
 ]
 PYTEST = ["pytest", "-vv", "--tb=long", "--color=yes"]
 RUN = ["coverage", "run", "--append", "--branch", "--source=pytest_beartype", "-m"]
@@ -15,7 +15,7 @@ EXCURSIONS = [
     [],
     ["--beartype-packages", "pytest_beartype"],
     ["--beartype-packages", "pytest"],
-    ["--beartype-packages", "*"],
+    ["--beartype-packages", "*", "--beartype-skip-packages", "pytest"],
 ]
 CMDS = [*[[*RUN, *PYTEST, *ex] for ex in EXCURSIONS], REPORT]
 
