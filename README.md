@@ -146,6 +146,3 @@ Feedstock Maintainers
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@tusharsadhwani](https://github.com/tusharsadhwani/)
 
-
-<!-- dummy commit to enable rerendering -->
-

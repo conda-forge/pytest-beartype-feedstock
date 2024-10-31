@@ -1,4 +1,4 @@
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: pytest-beartype
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pytest-beartype/pytest_beartype-{{ version }}.tar.gz
-  sha256: 5b7d5344c2c23b930e56331c3cbb4b2b2a538dad7b5eea9ae6a40fe6d5faed47
+  sha256: 9eeec379f812e0e5c9c1bb7e95d90a33a79c387034f2d735e03bc9aa0fd7cf3f
 
 build:
   number: 0
