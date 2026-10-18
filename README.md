@@ -3,11 +3,13 @@ About pytest-beartype-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-beartype-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/tusharsadhwani/pytest-beartype
+Home: https://pypi.org/project/pytest-beartype
 
 Package license: MIT
 
 Summary: Pytest plugin to run your tests with beartype checking enabled.
+
+Development: https://github.com/beartype/pytest-beartype
 
 Current build status
 ====================
