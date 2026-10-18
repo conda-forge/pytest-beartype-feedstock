@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: "0.3.0"
+  python_check_max: "3.14"
+
+package:
+  name: pytest-beartype
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/p/pytest-beartype/pytest_beartype-${{ version }}.tar.gz
+  sha256: ff116d14a01f7f49f229e77c1e030fcc6b6305deaca6d54d66e5cb7014630d62
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - hatchling >=1.14.0
+  run:
+    - beartype >=0.23.0rc0
+    - pytest >=9.1.0
+    - python >=${{ python_min }}
+
+tests:
+  - package_contents:
+      strict: true
+      files:
+        - etc/conda/test-files/pytest-beartype/**
+      site_packages:
+        - pytest_beartype/**
+        - pytest_beartype-${{ version }}.dist-info/**
+  - python:
+      imports: pytest_beartype
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - ${{ python_check_max }}.*
+  - files:
+      source:
+        - conftest.py
+        - pytest_beartype_test/**
+        - pytest.ini
+    requirements:
+      run:
+        - coverage >=5.5
+        - mypy
+        - pip
+        - pytest
+        - pytest-asyncio
+        - python ${{ python_min }}.*
+    script:
+      file: run_test.py
+
+about:
+  summary: Pytest plugin to run your tests with beartype checking enabled.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://pypi.org/project/pytest-beartype
+  repository: https://github.com/beartype/pytest-beartype
+
+extra:
+  recipe-maintainers:
+    - bollwyvl
+    - tusharsadhwani
